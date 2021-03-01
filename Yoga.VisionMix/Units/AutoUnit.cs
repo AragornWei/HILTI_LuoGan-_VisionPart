@@ -270,36 +270,37 @@ namespace Yoga.VisionMix.Units
             for (int i = 1; i <= count; i++)
             {
                 List<ToolBase> runToolList = ToolsFactory.GetToolList(i);
-                Tools.CreateImage.CreateImageTool createImageTool = runToolList[0] as Tools.CreateImage.CreateImageTool;
-                string path = Environment.CurrentDirectory + "\\ModelImage\\" + Path.GetFileNameWithoutExtension(UserSetting.Instance.ProjectPath) + ".bmp";
-                FileInfo fi = new FileInfo(path);
-                HImage image;
-                if (fi.Exists)
-                {
-                    try
-                    {
-                        image = new HImage(path);
-                    }
-                    catch
-                    {
-                        image = new HImage("byte", 2448, 2048);
-                    }
+                //Tools.CreateImage.CreateImageTool createImageTool = runToolList[0] as Tools.CreateImage.CreateImageTool;
+                //string path = Environment.CurrentDirectory + "\\ModelImage\\" + Path.GetFileNameWithoutExtension(UserSetting.Instance.ProjectPath) + ".bmp";
+                //FileInfo fi = new FileInfo(path);
+                //HImage image;
+                //if (fi.Exists)
+                //{
+                //    try
+                //    {
+                //        image = new HImage(path);
+                //    }
+                //    catch
+                //    {
+                //        image = new HImage("byte", 2448, 2048);
+                //    }
                     
-                }
-                else
-                {
-                    image = new HImage("byte", 2448, 2048);
-                }
+                //}
+                //else
+                //{
+                //    image = new HImage("byte", 2448, 2048);
+                //}
 
-                ImageEventArgs imageData = new ImageEventArgs(Command.None, image, i, i, new HTuple(0.0));
-                createImageTool.SettExtTriggerData(imageData);
+                //ImageEventArgs imageData = new ImageEventArgs(Command.None, image, i, i, new HTuple(0.0));
+                //createImageTool.SettExtTriggerData(imageData);
                 foreach (var item in runToolList)
                 {
                     if (item is IToolRun)
                     {
                         try
                         {
-                            item.Run();
+                            //item.Run();
+                            item.RunRef();
                         }
                         catch
                         {
